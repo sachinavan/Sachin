@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Shaipeez</title>
+    <link rel="stylesheet"  href="recipe.css">
+    <script src="recipe.js" defer></script>
+    <style>
+    /* Container for the stars */
+    .rating {
+      display: flex;
+      direction: row-reverse;
+      justify-content: center;
+    }
+
+    /* Hide the radio buttons */
+    .rating input {
+      display: none;
+    }
+
+    /* Style the stars */
+    .rating label {
+      font-size: 1.5rem;
+      color: lightgray;
+      cursor: pointer;
+      transition: color 0.7s;
+    }
+
+    /* Change color on hover or selection */
+    .rating input:checked ~ label,
+    .rating label:hover,
+    .rating label:hover ~ label {
+      color: gold;
+    }
+  </style>
+   
+</head>
+<body>
+    
+    <header>
+        <h2>🍳 Recipe Marketplace</h2>
+       <nav>
+    <ul class="navbar">
+        <li class="Menu">DECORATING</li>
+        <li class="Recipe">HOME IMPROVEMENT</li>
+        <li class="Sells">GARDEN</li>
+        <li class="Content">HOUSEKEEPING</li>
+        <li class="Profile">RECIPES</li>
+        <li class="SHOPPING">SHOPPING</li>
+        <li class="HOLIDAY">HOLIDAY</li>
+        <li class="NEWS">NEWS</li>
+        <li class="ABOUT US">ABOUT US</li>
+        <li><a href="login.html" style="color: white; text-decoration: none;">LOGIN</a></li>
+        <I>Subscribe</I>
+    </ul></nav>
+
+    </header>
+    <main>
+    
+    <img src="https://www.bhg.com/thmb/7jVpA-kVUt9sVSln6KRZHqnPWtY=/3000x750/filters:max_bytes(200000):strip_icc():format(webp)/recipes-category-header-new-2000-1-bbf00ff2cb3749cf9195800ea9c9f0f4.jpg" width="100%" height="35%" alt="Recipe Shaipeez">
+    </main>
+    <h3>Recipes & Cooking </h3>
+
+    <p>Find the recipe you need for any meal or occasion and rest-assured the recipe will work because it's been tested in the Better House & Garden test kitchen. We promise to have something that'll inspire your weeknight dinner, celebratory desserts, holiday feasts and Sunday brunches and every single thing in between.</p>
+    
+    <ul class="list">
+       <a href="recipe.html"><li class="item">BREAKFAST & BRUNCH</li></a>
+        <a href="recipe.html"><li class="item">LUNCH</li></a>
+        <a href="recipe.html"><li class="item">DINNER & MEAL IDEAS</li></a>
+        <a href="recipe.html"><li class="item">APPETIZERS</li></a>
+        <a href="recipe.html"><li class="item">SIDE DISHES</li></a>
+        <a href="recipe.html"><li class="item">DESSERTS & BAKING</li></a>
+        <a href="recipe.html"><li class="item">DRINKS</li></a>
+        <a href="recipe.html"><li class="item">RECIPES BY INGREDIENT</li></a>
+        <a href="recipe.html"><li class="item">RECIPES BY DIET</li></a>
+        <a href="recipe.html"><li class="item">RECIPES BY METHOD</li></a>
+        <a href="recipe.html"><li class="item">HOW TO COOK</li></a>
+        <a href="recipe.html"><li class="item">HOLIDAY RECIPES</li></a>
+    </ul>
+
+     
+    
+    <div class="recipes-container">
+        <div class="Image"><a href="recipe.html"><img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cmVjaXBlfGVufDB8fDB8fHww" alt=""></a>
+  <h4> Recipe:Stuffed eggplants, youghurt, salad
+     Weight:150g
+    Rs:<s>180</s>Rs:130</h4>
+     <div class="rating">
+    <input type="radio" id="star5-1" name="rating-1" value="5">
+    <label for="star5-1">★</label>
+    <input type="radio" id="star4-1" name="rating-1" value="4">
+    <label for="star4-1">★</label>
+    <input type="radio" id="star3-1" name="rating-1" value="3">
+    <label for="star3-1">★</label>
+    <input type="radio" id="star2-1" name="rating-1" value="2">
+    <label for="star2-1">★</label>
+    <input type="radio" id="star1-1" name="rating-1" value="1">
+    <label for="star1-1">★</label>
+  </div>
+    </div>
+        <div class="Image"><a href="recipe.html"><img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cmVjaXBlfGVufDB8fDB8fHww" alt=""></a>
+            <h4>
+              Recipe:Autumn Soup
+              Weight: 100ml
+             Rs:<s>150</s> Rs:120
+            </h4>
+             <div class="rating">
+    <input type="radio" id="star5-2" name="rating-2" value="5">
+    <label for="star5-2">★</label>
+    <input type="radio" id="star4-2" name="rating-2" value="4">
+    <label for="star4-2">★</label>
+    <input type="radio" id="star3-2" name="rating-2" value="3">
+    <label for="star3-2">★</label>
+    <input type="radio" id="star2-2" name="rating-2" value="2">
+    <label for="star2-2">★</label>
+    <input type="radio" id="star1-2" name="rating-2" value="1">
+    <label for="star1-2">★</label>
+  </div>
+        </div>
+      <div class="Image"> <a href="recipe.html"><img src="https://images.unsplash.com/photo-1505576633757-0ac1084af824?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlY2lwZXxlbnwwfHwwfHx8MA%3D%3D" alt=""></a>
+          <h4> Recipe:Breakfast buddha bowl
+            Weight:200g
+        Rs:<s>320</s> Rs:250</h4>
+         <div class="rating">
+    <input type="radio" id="star5-3" name="rating-3" value="5">
+    <label for="star5-3">★</label>
+    <input type="radio" id="star4-3" name="rating-3" value="4">
+    <label for="star4-3">★</label>
+    <input type="radio" id="star3-3" name="rating-3" value="3">
+    <label for="star3-3">★</label>
+    <input type="radio" id="star2-3" name="rating-3" value="2">
+    <label for="star2-3">★</label>
+    <input type="radio" id="star1-3" name="rating-3" value="1">
+    <label for="star1-3">★</label>
+  </div> 
+        </div>
+      <div class="Image">  <a href="recipe.html"><img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHJlY2lwZXxlbnwwfHwwfHx8MA%3D%3D" alt=""></a>
+            <h4>
+                Recipe:Avocado and Egg Toast
+                Weight:250g
+               Rs:<s>460</s> Rs:300
+
+            </h4>
+             <div class="rating">
+    <input type="radio" id="star5-4" name="rating-4" value="5">
+    <label for="star5-4">★</label>
+    <input type="radio" id="star4-4" name="rating-4" value="4">
+    <label for="star4-4">★</label>
+    <input type="radio" id="star3-4" name="rating-4" value="3">
+    <label for="star3-4">★</label>
+    <input type="radio" id="star2-4" name="rating-4" value="2">
+    <label for="star2-4">★</label>
+    <input type="radio" id="star1-4" name="rating-4" value="1">
+    <label for="star1-4">★</label>
+  </div>
+        </div>
+        <div class="Image"> <a href="recipe.html"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D" alt=""></a>
+          <h4> Recipe:Mediterranean Salad
+            Weight:200g
+         Rs:<s>330</s> Rs:250</h4> 
+          <div class="rating">
+    <input type="radio" id="star5-5" name="rating-5" value="5">
+    <label for="star5-5">★</label>
+    <input type="radio" id="star4-5" name="rating-5" value="4">
+    <label for="star4-5">★</label>
+    <input type="radio" id="star3-5" name="rating-5" value="3">
+    <label for="star3-5">★</label>
+    <input type="radio" id="star2-5" name="rating-5" value="2">
+    <label for="star2-5">★</label>
+    <input type="radio" id="star1-5" name="rating-5" value="1">
+    <label for="star1-5">★</label>
+  </div>
+        </div>
+        <div class="Image"> <a href="recipe.html"><img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8fDA%3D" alt=""></a>
+          <h4> Recipe:Grilled Chicken Platter
+            Weight:300g
+        Rs:<s>435</s> Rs:350</h4> 
+         <div class="rating">
+    <input type="radio" id="star5-6" name="rating-6" value="5">
+    <label for="star5-6">★</label>
+    <input type="radio" id="star4-6" name="rating-6" value="4">
+    <label for="star4-6">★</label>
+    <input type="radio" id="star3-6" name="rating-6" value="3">
+    <label for="star3-6">★</label>
+    <input type="radio" id="star2-6" name="rating-6" value="2">
+    <label for="star2-6">★</label>
+    <input type="radio" id="star1-6" name="rating-6" value="1">
+    <label for="star1-6">★</label>
+  </div>
+        </div>
+        <div class="Image"> <a href="recipe.html"><img src="https://images.unsplash.com/photo-1484980972926-edee96e0960d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGZvb2R8ZW58MHx8MHx8fDA%3D" alt=""></a>
+          <h4> Recipe:Vegetable Stir Fry
+            Weight:250g
+        Rs:<s>435</s> Rs:280</h4>
+         <div class="rating">
+    <input type="radio" id="star5-7" name="rating-7" value="5">
+    <label for="star5-7">★</label>
+    <input type="radio" id="star4-7" name="rating-7" value="4">
+    <label for="star4-7">★</label>
+    <input type="radio" id="star3-7" name="rating-7" value="3">
+    <label for="star3-7">★</label>
+    <input type="radio" id="star2-7" name="rating-7" value="2">
+    <label for="star2-7">★</label>
+    <input type="radio" id="star1-7" name="rating-7" value="1">
+    <label for="star1-7">★</label>
+  </div> 
+        </div>
+        <div class="Image"> <a href="recipe.html"><img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fGZvb2R8ZW58MHx8MHx8fDA%3D" alt=""></a>
+          <h4> Recipe:Pasta Carbonara
+            Weight:300g
+         Rs:<s>415</s> Rs:320</h4> 
+          <div class="rating">
+    <input type="radio" id="star5-8" name="rating-8" value="5">
+    <label for="star5-8">★</label>
+    <input type="radio" id="star4-8" name="rating-8" value="4">
+    <label for="star4-8">★</label>
+    <input type="radio" id="star3-8" name="rating-8" value="3">
+    <label for="star3-8">★</label>
+    <input type="radio" id="star2-8" name="rating-8" value="2">
+    <label for="star2-8">★</label>
+    <input type="radio" id="star1-8" name="rating-8" value="1">
+    <label for="star1-8">★</label>
+  </div>
+        </div>
+    </div>
+
+</body>
+</html>
