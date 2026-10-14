@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mahashivratri - Special Animation</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/_mahashivratri-styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Remove taskbar effect */
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(26, 26, 46, 0.9) 0%,
+                rgba(22, 33, 62, 0.9) 50%,
+                rgba(139, 69, 19, 0.7) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        /* Flower Animation Container */
+        .flowers-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .flower {
+            position: absolute;
+            opacity: 0;
+            filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.8));
+        }
+
+        .flower span {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Deity Container */
+        .deity-container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            opacity: 0;
+            animation: fadeInDeities 2s ease-in-out 1.5s forwards;
+        }
+
+        /* Shiva */
+        .shiva {
+            position: relative;
+            width: 150px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: floatShiva 3s ease-in-out 3.5s infinite;
+        }
+
+        .shiva-head {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 30% 30%, #f4a460, #8b4513);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        }
+
+        .shiva-third-eye {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ff6347;
+            border-radius: 50%;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px #ff6347;
+        }
+
+        .shiva-hair {
+            position: absolute;
+            top: -15px;
+            width: 70px;
+            height: 20px;
+            background: radial-gradient(ellipse at center, #2f1f0f, #1a0f05);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .shiva-body {
+            width: 50px;
+            height: 80px;
+            background: linear-gradient(90deg, #e6b366, #d4a574);
+            margin-top: 10px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .shiva-arms {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .shiva-arm {
+            position: absolute;
+            width: 50px;
+            height: 30px;
+            background: linear-gradient(90deg, #e6b366, #d4a574);
+            border-radius: 50%;
+            top: 0;
+        }
+
+        .shiva-arm-left {
+            left: 0;
+            transform: rotate(-30deg);
+        }
+
+        .shiva-arm-right {
+            right: 0;
+            transform: rotate(30deg);
+        }
+
+        .shiva-legs {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .shiva-leg {
+            width: 20px;
+            height: 60px;
+            background: linear-gradient(90deg, #e6b366, #d4a574);
+            border-radius: 10px;
+        }
+
+        /* Parvati */
+        .parvati {
+            position: relative;
+            width: 150px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: floatParvati 3s ease-in-out 3.5s infinite;
+        }
+
+        .parvati-head {
+            width: 55px;
+            height: 55px;
+            background: radial-gradient(circle at 30% 30%, #f8c9a8, #d4956f);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .parvati-eyes {
+            position: absolute;
+            width: 40px;
+            height: 15px;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .eye {
+            width: 8px;
+            height: 8px;
+            background: #000;
+            border-radius: 50%;
+        }
+
+        .parvati-tilak {
+            position: absolute;
+            width: 6px;
+            height: 8px;
+            background: #ff1744;
+            border-radius: 50%;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .parvati-hair {
+            position: absolute;
+            top: -12px;
+            width: 65px;
+            height: 18px;
+            background: radial-gradient(ellipse at center, #1a0f0f, #0a0505);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .parvati-body {
+            width: 45px;
+            height: 75px;
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+            margin-top: 8px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .parvati-arms {
+            position: absolute;
+            width: 110px;
+            height: 35px;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .parvati-arm {
+            position: absolute;
+            width: 45px;
+            height: 28px;
+            background: linear-gradient(90deg, #f8c9a8, #d4956f);
+            border-radius: 50%;
+            top: 0;
+        }
+
+        .parvati-arm-left {
+            left: 0;
+            transform: rotate(-35deg);
+        }
+
+        .parvati-arm-right {
+            right: 0;
+            transform: rotate(35deg);
+        }
+
+        .parvati-legs {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .parvati-leg {
+            width: 18px;
+            height: 55px;
+            background: linear-gradient(90deg, #f8c9a8, #d4956f);
+            border-radius: 8px;
+        }
+
+        /* Decorative Elements */
+        .mandala {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, 
+                rgba(255, 215, 0, 0.3) 0%,
+                rgba(255, 215, 0, 0.1) 50%,
+                transparent 100%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.4);
+            z-index: 5;
+            animation: rotateMandala 20s linear infinite;
+        }
+
+        .mandala::before {
+            content: '';
+            position: absolute;
+            inset: 30px;
+            border: 2px dashed rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+        }
+
+        /* Text and Title */
+        .title {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                         0 0 40px rgba(255, 69, 0, 0.6);
+            z-index: 20;
+            opacity: 0;
+            animation: fadeInText 1.5s ease-in 0.5s forwards;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: #ff69b4;
+            text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+            z-index: 20;
+            opacity: 0;
+            animation: fadeInText 1.5s ease-in 1s forwards;
+            letter-spacing: 1px;
+        }
+
+        .wedding-text {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 32px;
+            color: #ff6347;
+            text-shadow: 0 0 20px rgba(255, 99, 71, 0.9);
+            z-index: 20;
+            opacity: 0;
+            animation: fadeInText 2s ease-in 4.5s forwards;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(-100px) scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInDeities {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes floatShiva {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes floatParvati {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes rotateMandala {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes weddingPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffd700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .deity-container {
+                gap: 30px;
+            }
+
+            .shiva, .parvati {
+                width: 100px;
+                height: 180px;
+            }
+
+            .title {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .wedding-text {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="mandala"></div>
+        
+        <div class="flowers-container" id="flowersContainer"></div>
+
+        <div class="deity-container" id="deityContainer">
+            <!-- Shiva -->
+            <div class="shiva" id="shiva">
+                <div class="shiva-hair"></div>
+                <div class="shiva-head">
+                    <div class="shiva-third-eye"></div>
+                </div>
+                <div class="shiva-body">
+                    <div class="shiva-arms">
+                        <div class="shiva-arm shiva-arm-left"></div>
+                        <div class="shiva-arm shiva-arm-right"></div>
+                    </div>
+                </div>
+                <div class="shiva-legs">
+                    <div class="shiva-leg"></div>
+                    <div class="shiva-leg"></div>
+                </div>
+            </div>
+
+            <!-- Parvati -->
+            <div class="parvati" id="parvati">
+                <div class="parvati-hair"></div>
+                <div class="parvati-head">
+                    <div class="parvati-eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                    </div>
+                    <div class="parvati-tilak"></div>
+                </div>
+                <div class="parvati-body">
+                    <div class="parvati-arms">
+                        <div class="parvati-arm parvati-arm-left"></div>
+                        <div class="parvati-arm parvati-arm-right"></div>
+                    </div>
+                </div>
+                <div class="parvati-legs">
+                    <div class="parvati-leg"></div>
+                    <div class="parvati-leg"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="title" id="title">🕉️ Happy Mahashivratri 🕉️</div>
+        <div class="subtitle" id="subtitle">प्रणाम भगवान शिव</div>
+        <div class="wedding-text" id="weddingText">Shiva & Parvati Wedding Celebration</div>
+    </div>
+
+    <!-- Socket.IO Client Library -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    
+    <!-- Socket Client -->
+    <script src="/_socket-client.js"></script>
+    
+    <!-- Mahashivratri Script -->
+    <script src="/_mahashivratri-script.js"></script>
+    
+    <script>
+        // Flower Types
+        const flowerEmojis = ['🌹', '🌺', '🌸', '🌼', '🌻', '💐', '🏵️'];
+        
+        // Initialize flowers animation
+        function createFlowerAnimation() {
+            const container = document.getElementById('flowersContainer');
+            
+            for (let i = 0; i < 50; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                
+                const emoji = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+                flower.innerHTML = `<span>${emoji}</span>`;
+                
+                const startX = Math.random() * window.innerWidth;
+                const startY = -100;
+                const endX = startX + (Math.random() - 0.5) * 300;
+                const endY = window.innerHeight;
+                const duration = 3 + Math.random() * 4;
+                const delay = Math.random() * 2.5;
+                const rotation = Math.random() * 360;
+                
+                flower.style.left = startX + 'px';
+                flower.style.top = startY + 'px';
+                flower.style.fontSize = (30 + Math.random() * 30) + 'px';
+                flower.style.animation = `floatIn ${duration}s linear ${delay}s forwards`;
+                flower.style.setProperty('--end-x', endX);
+                flower.style.setProperty('--end-y', endY);
+                flower.style.setProperty('--rotation', rotation + 'deg');
+                
+                container.appendChild(flower);
+                
+                // Animate flower falling
+                setTimeout(() => {
+                    flower.style.transition = `all ${duration}s linear`;
+                    flower.style.left = endX + 'px';
+                    flower.style.top = endY + 'px';
+                    flower.style.opacity = '0';
+                    flower.style.transform = `rotate(${rotation}deg)`;
+                }, delay * 1000);
+            }
+        }
+
+        // Create continuous flower rain
+        function continuousFlowerRain() {
+            createFlowerAnimation();
+            setInterval(createFlowerAnimation, 3000);
+        }
+
+        // Add sparkles
+        function createSparkles() {
+            const container = document.getElementById('deityContainer');
+            
+            for (let i = 0; i < 30; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                
+                const x = Math.random() * 400 - 200;
+                const y = Math.random() * 300 - 150;
+                const duration = 2 + Math.random() * 2;
+                const delay = Math.random() * 4;
+                
+                sparkle.style.left = x + 'px';
+                sparkle.style.top = y + 'px';
+                sparkle.style.animation = `twinkle ${duration}s ease-in-out ${delay}s infinite`;
+                
+                container.appendChild(sparkle);
+            }
+        }
+
+        // Add twinkle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes twinkle {
+                0%, 100% { opacity: 0; }
+                50% { opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize everything on load
+        window.addEventListener('load', () => {
+            continuousFlowerRain();
+            createSparkles();
+        });
+
+        // Full screen functionality
+        function requestFullScreen() {
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+                elem.mozRequestFullScreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
+
+        // Request fullscreen on any user interaction
+        document.addEventListener('click', requestFullScreen);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'f' || e.key === 'F') {
+                requestFullScreen();
+            }
+        });
+
+        // Add some interactivity
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // Allow escape to exit fullscreen
+                document.exitFullscreen?.();
+            }
+        });
+    </script>
+</body>
+</html>
